@@ -1,5 +1,8 @@
 #!/bin/bash
 
+iptables -I INPUT -p tcp --dport 30000:30100 -j ACCEPT
+iptables-restore < /root/firewall.rules
+
 # Create home dir and update vsftpd user db:
 mkdir -p /home/vsftpd
 chown -R ftp:ftp /home/vsftpd
